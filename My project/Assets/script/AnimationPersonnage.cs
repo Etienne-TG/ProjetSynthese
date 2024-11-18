@@ -28,5 +28,21 @@ public class AnimationPersonnage : MonoBehaviour
             Debug.Log("Arret de la course");
 
         }
+        if (Input.GetKeyDown(KeyCode.S)) {
+
+            animator.SetTrigger("startRunningBackwards");
+            Debug.Log("Course arrière");
+        }
+        else if (Input.GetKeyUp(KeyCode.S))
+        {
+            animator.SetTrigger("stopRunningBackwards");
+        }
+        if (Input.GetKeyDown(KeyCode.Space)){
+            animator.SetTrigger("startJump");
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            animator.SetTrigger("stopJump");
+        }
     }
 }
