@@ -14,8 +14,8 @@ public class Menu : MonoBehaviour
     bool choixJoueur3;
     bool choixJoueur4;
     
-    public Vector3 targetPosition = new Vector3(0f, 0f, 0f);  // Position de la caméra
-    public Vector3 targetRotation = new Vector3(0f, 90f, 0f);    // Rotation de la caméra (en degrés)
+    //public Vector3 targetPosition = new Vector3(0f, 0f, 0f);  // Position de la caméra
+    //public Vector3 targetRotation = new Vector3(90f, 90f, 0f);    // Rotation de la caméra (en degrés)
 
     // Start is called before the first frame update
     void Start()
@@ -38,8 +38,8 @@ public class Menu : MonoBehaviour
         {
             Debug.Log("1");
             canvas.enabled = false;
-            Camera.main.transform.position = targetPosition;
-            Camera.main.transform.rotation = Quaternion.Euler(targetRotation);
+            //Camera.main.transform.position = targetPosition;
+            //Camera.main.transform.rotation = Quaternion.Euler(targetRotation);
         }
         else if (choixJoueur2)
         {
