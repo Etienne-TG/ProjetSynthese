@@ -4329,7 +4329,7 @@ Transform:
   m_GameObject: {fileID: 308919610}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 3.84, z: -1.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5982,6 +5982,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992580012536702362, guid: 3de2e7f9f83267645ba5e12bff1f9cf0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12995,7 +13000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b0411fd46ee5e4c8baf99ec3f5bfd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 250
   rotationSpeed: 50
   inversionY: 0
 --- !u!82 &1001765298
@@ -13018,7 +13023,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.0258126
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

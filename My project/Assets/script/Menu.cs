@@ -58,8 +58,14 @@ public class Menu : MonoBehaviour
         {
             Debug.Log("4");  
             messageTexte.enabled = true;
-            messageTexte.text = "Développeurs :\n Etienne Tardif-Girard\n Dylan Pironnet\n Commande : \n";
-           
+            messageTexte.text = "Développeurs :\n Etienne Tardif-Girard\n Dylan Pironnet\n Commande : \n " +
+                "W - Avancer \n" +
+                "S - Reculer \n" +
+                "A - Aller à gauche \n" +
+                "D - Aller à droite \n" +
+                "ESPACE - Sauter \n";
+
+
         }
     }
 }

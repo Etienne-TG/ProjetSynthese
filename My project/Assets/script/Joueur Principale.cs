@@ -43,6 +43,7 @@ public class JoueurPrincipale : MonoBehaviour
         {
             playerIsJumping = true;
         }
+
         deplacementHorizontal = Input.GetAxis("Horizontal");
         deplacementVertical = Input.GetAxis("Vertical");
 
@@ -75,6 +76,11 @@ public class JoueurPrincipale : MonoBehaviour
 
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameIsRunning = !gameIsRunning;
+        }
+
         rigidBody.velocity = new Vector3(deplacementVecteur.x, rigidBody.velocity.y, deplacementVecteur.z);
 
         // Rottation
@@ -98,4 +104,11 @@ public class JoueurPrincipale : MonoBehaviour
             float zoom = Input.GetAxis("Mouse ScrollWheel") * -1.0f;
         }
     }
+    //private void mettrePause()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Escape))
+    //    {
+    //        gameIsRunning = !gameIsRunning;
+    //    }
+    //}
 }
