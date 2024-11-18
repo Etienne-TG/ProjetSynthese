@@ -29,7 +29,6 @@ public class JoueurPrincipale : MonoBehaviour
         deplacementHorizontal = 0.0f;
         deplacementVertical = 0.0f;
         cameraPrincipale = GameObject.Find("Main Camera").GetComponent<Camera>();
-        objetsEnfants();
     }
 
     // Update is called once per frame
@@ -97,18 +96,6 @@ public class JoueurPrincipale : MonoBehaviour
         if (Input.GetKey(KeyCode.O))
         {
             float zoom = Input.GetAxis("Mouse ScrollWheel") * -1.0f;
-            
-        }
-    }
-    private void objetsEnfants()
-    {
-        int nbrEnfants = transform.childCount;
-        Debug.Log("nbrEnfants = " + nbrEnfants.ToString());
-        Transform[] listeTransforms = GetComponentsInChildren<Transform>();
-        Debug.Log("ListeTransforms = " + listeTransforms.Length);
-        foreach (Transform transform in listeTransforms)
-        {
-            Debug.Log("Nom des objets = " + transform.name);
         }
     }
 }
