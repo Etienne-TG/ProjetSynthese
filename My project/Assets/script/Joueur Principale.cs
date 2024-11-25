@@ -30,6 +30,7 @@ public class JoueurPrincipale : MonoBehaviour
         deplacementHorizontal = 0.0f;
         deplacementVertical = 0.0f;
         cameraPrincipale = GameObject.Find("Main Camera").GetComponent<Camera>();
+        menu = FindObjectOfType<Menu>();
     }
 
     // Update is called once per frame
@@ -40,12 +41,20 @@ public class JoueurPrincipale : MonoBehaviour
         {
             gameIsRunning = !gameIsRunning;
             Time.timeScale = gameIsRunning ? 1 : 0; // Met le jeu en pause ou reprend
+            if (gameIsRunning)
+            {
+                menu.masquerMenuPause();
+            }
+            else
+            {
+                menu.afficherMenuPause();
+            }
             return; // Évite de continuer si le jeu est en pause
         }
 
         if (!gameIsRunning)
         {
-            menu.afficherMenuPause();
+            //menu.afficherMenuPause();
             return; // Si le jeu est en pause, ignore les mises à jour
         }
 

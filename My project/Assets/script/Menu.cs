@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class Menu : MonoBehaviour
 {
     Canvas canvas;
+    GameObject messagePause;
     Text messageTexte;
     bool choixJoueur1;
     bool choixJoueur2;
@@ -22,7 +23,13 @@ public class Menu : MonoBehaviour
     {
         canvas = GameObject.Find("Menu").GetComponent<Canvas>();
         messageTexte = GetComponent<Text>();
-        
+        canvas = GetComponent<Canvas>();
+        messagePause = GameObject.FindWithTag("Pause");
+        if (messagePause != null)
+        {
+            messagePause.SetActive(false); // Désactive l'objet pause
+        }
+
     }
 
     // Update is called once per frame  
@@ -63,13 +70,25 @@ public class Menu : MonoBehaviour
                 "S - Reculer \n" +
                 "A - Aller à gauche \n" +
                 "D - Aller à droite \n" +
-                "ESPACE - Sauter \n";
+                "ESPACE - Sauter \n" + 
+                "ECHAP - Mettre le jeu en pause";
 
 
         }
     }
     public void afficherMenuPause()
     {
-        canvas.enabled = true;
+        if (messagePause != null)
+        {
+            messagePause.SetActive(true); // Active l'objet pause
+        }
+    }
+
+    public void masquerMenuPause()
+    {
+        if (messagePause != null)
+        {
+            messagePause.SetActive(false); // Désactive l'objet pause
+        }
     }
 }
