@@ -29,7 +29,6 @@ public class AnimationPersonnage : MonoBehaviour
 
         }
         if (Input.GetKeyDown(KeyCode.S)) {
-
             animator.SetTrigger("startRunningBackwards");
             Debug.Log("Course arrière");
         }
