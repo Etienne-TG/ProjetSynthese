@@ -26,7 +26,6 @@ public class AnimationPersonnage : MonoBehaviour
 
             animator.SetTrigger("stopRunning");
             Debug.Log("Arret de la course");
-
         }
         if (Input.GetKeyDown(KeyCode.S)) {
             animator.SetTrigger("startRunningBackwards");
@@ -42,6 +41,22 @@ public class AnimationPersonnage : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.Space))
         {
             animator.SetTrigger("stopJump");
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            animator.SetTrigger("startGauche");
+        }
+        else if (Input.GetKeyUp(KeyCode.A)) {
+            animator.SetTrigger("stopGauche");
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            animator.SetTrigger("startDroite");
+        }
+        else if (Input.GetKeyUp(KeyCode.D))
+        {
+            animator.SetTrigger("stropDroite");
         }
     }
 }
