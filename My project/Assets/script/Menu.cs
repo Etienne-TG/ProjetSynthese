@@ -68,4 +68,8 @@ public class Menu : MonoBehaviour
 
         }
     }
+    public void afficherMenuPause()
+    {
+        canvas.enabled = true;
+    }
 }

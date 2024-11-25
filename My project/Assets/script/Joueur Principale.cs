@@ -18,6 +18,7 @@ public class JoueurPrincipale : MonoBehaviour
     [SerializeField][Range(50f, 200f)] private float rotationSpeed;
     [SerializeField] private bool inversionY;
     private Camera cameraPrincipale;
+    Menu menu;
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -34,6 +35,20 @@ public class JoueurPrincipale : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Gestion de la pause
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameIsRunning = !gameIsRunning;
+            Time.timeScale = gameIsRunning ? 1 : 0; // Met le jeu en pause ou reprend
+            return; // Évite de continuer si le jeu est en pause
+        }
+
+        if (!gameIsRunning)
+        {
+            menu.afficherMenuPause();
+            return; // Si le jeu est en pause, ignore les mises à jour
+        }
+
         if (!gameIsRunning && rigidBody.velocity.y == 0)
         {
             gameIsRunning = true;
@@ -44,6 +59,7 @@ public class JoueurPrincipale : MonoBehaviour
             playerIsJumping = true;
         }
 
+      
         deplacementHorizontal = Input.GetAxis("Horizontal");
         deplacementVertical = Input.GetAxis("Vertical");
 
@@ -76,10 +92,10 @@ public class JoueurPrincipale : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            gameIsRunning = !gameIsRunning;
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    gameIsRunning = !gameIsRunning;
+        //}
 
         rigidBody.velocity = new Vector3(deplacementVecteur.x, rigidBody.velocity.y, deplacementVecteur.z);
 
