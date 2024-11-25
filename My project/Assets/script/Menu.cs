@@ -40,13 +40,12 @@ public class Menu : MonoBehaviour
         choixJoueur2 = Input.GetKeyDown(KeyCode.Keypad2);
         choixJoueur3 = Input.GetKeyDown(KeyCode.Keypad3);
         choixJoueur4 = Input.GetKeyDown(KeyCode.Keypad4);
-            
+
         if (choixJoueur1)
         {
             Debug.Log("1");
-            canvas.enabled = false;
-            //Camera.main.transform.position = targetPosition;
-            //Camera.main.transform.rotation = Quaternion.Euler(targetRotation);
+            canvas.enabled = false; // Masque le menu principal
+            FindObjectOfType<JoueurPrincipale>().DémarrerJeu(); // Démarre le jeu
         }
         else if (choixJoueur2)
         {
