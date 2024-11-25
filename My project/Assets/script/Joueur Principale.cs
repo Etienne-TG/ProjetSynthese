@@ -36,6 +36,16 @@ public class JoueurPrincipale : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (!gameIsRunning && rigidBody.velocity.y == 0)
+        {
+            gameIsRunning = true;
+            playerIsGrounded = true;
+        }
+        if (playerIsGrounded && !playerIsJumping && Input.GetKeyDown(KeyCode.Space))
+        {
+            playerIsJumping = true;
+        }
         // Gestion de la pause
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -58,15 +68,6 @@ public class JoueurPrincipale : MonoBehaviour
             return; // Si le jeu est en pause, ignore les mises à jour
         }
 
-        if (!gameIsRunning && rigidBody.velocity.y == 0)
-        {
-            gameIsRunning = true;
-            playerIsGrounded = true;
-        }
-        if (playerIsGrounded && !playerIsJumping && Input.GetKeyDown(KeyCode.Space))
-        {
-            playerIsJumping = true;
-        }
 
       
         deplacementHorizontal = Input.GetAxis("Horizontal");
