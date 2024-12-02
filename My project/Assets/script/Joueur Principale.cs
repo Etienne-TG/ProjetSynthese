@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JoueurPrincipale : MonoBehaviour
 {
     // Start is called before the first frame update
+    bool isInverse;
     bool gameIsRunning;
     bool playerIsGrounded;
     bool playerIsJumping;
@@ -19,9 +21,13 @@ public class JoueurPrincipale : MonoBehaviour
     [SerializeField] private bool inversionY;
     private Camera cameraPrincipale;
     Menu menu;
+    Text messageTexte;
+
     void Start()
     {
+        messageTexte = GetComponent<Text>();
         rigidBody = GetComponent<Rigidbody>();
+        isInverse = false;
         gameIsRunning = false;
         playerIsGrounded = false;
         playerIsJumping = false;
@@ -36,20 +42,36 @@ public class JoueurPrincipale : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         // Gestion de la pause
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+           
             gameIsRunning = !gameIsRunning;
             Time.timeScale = gameIsRunning ? 1 : 0; // Met le jeu en pause ou reprend
             if (gameIsRunning)
             {
                 menu.masquerMenuPause();
+
             }
             else
             {
+               
                 menu.afficherMenuPause();
             }
+
+          
+            
             return; // Évite de continuer si le jeu est en pause
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad5) && !gameIsRunning)
+        {
+            gestionInversion();
+        }
+
+        if (!gameIsRunning)
+        {
+            return; // Si le jeu est en pause, ignore les mises à jour
         }
 
         if (!gameIsRunning)
@@ -81,12 +103,24 @@ public class JoueurPrincipale : MonoBehaviour
         {
             rotationY = Input.GetAxis("Mouse X");
             rotationX = Input.GetAxis("Mouse Y");
-            if (inversionY)
+            if (isInverse)
             {
                 rotationX *= -1.0f;
             }
         }
     }
+
+
+    public void gestionInversion()
+    {
+
+        isInverse = !isInverse;
+        Debug.Log("Y-axis inversion is now " + (isInverse ? "enabled" : "disabled"));
+
+
+    }
+
+
     private void FixedUpdate()
     {
         if (!playerIsGrounded && playerIsJumping && rigidBody.velocity.y == 0)

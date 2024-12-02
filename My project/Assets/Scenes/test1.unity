@@ -13844,7 +13844,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\tBienvenue dans le labyrinthe  !\n\n\t1 - Lancer le jeu\n\t2 - Gestion
-    audio\n\t3 - Quitter le jeu\n\t4 - \xC0 propos"
+    audio\n\t3 - Quitter le jeu\n\t4 - \xC0 propos\n\t5- Inverser X et Y"
 --- !u!222 &1438044653
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14921,7 +14921,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\t########PAUSE#######\n\n\tEchap - Reprendre le jeu\n\t2 - Gestion audio\n\t3
-    - Quitter le jeu\n\t4 - \xC0 propos"
+    - Quitter le jeu\n\t4 - \xC0 propos\n\t5- Inverser X et Y"
 --- !u!222 &1490902169
 CanvasRenderer:
   m_ObjectHideFlags: 0
