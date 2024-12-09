@@ -3,13 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
+    float targetTime;
+
     Canvas canvas;
     GameObject messagePause;
     Text messageTexte;
+    Text messageTextMinuteur;
     bool choixJoueur1;
     bool choixJoueur2;
     bool choixJoueur3;
@@ -25,6 +29,7 @@ public class Menu : MonoBehaviour
         JoueurPrincipale = FindObjectOfType<JoueurPrincipale>();
         canvas = GameObject.Find("Menu").GetComponent<Canvas>();
         messageTexte = GetComponent<Text>();
+        messageTextMinuteur = GetComponent<Text>();
         canvas = GetComponent<Canvas>();
         messagePause = GameObject.FindWithTag("Pause");
         if (messagePause != null)
@@ -38,6 +43,7 @@ public class Menu : MonoBehaviour
     void Update()
     {
         
+
         choixJoueur1 = Input.GetKeyDown(KeyCode.Keypad1);
         choixJoueur2 = Input.GetKeyDown(KeyCode.Keypad2);
         choixJoueur3 = Input.GetKeyDown(KeyCode.Keypad3);
@@ -49,6 +55,9 @@ public class Menu : MonoBehaviour
             Debug.Log("1");
             canvas.enabled = false; // Masque le menu principal
             FindObjectOfType<JoueurPrincipale>().DémarrerJeu(); // Démarre le jeu
+            messageTexte.enabled = true;
+            messageTextMinuteur.text = "Temps restant: " + targetTime.ToString();
+       
         }
         else if (choixJoueur2)
         {
@@ -96,6 +105,10 @@ public class Menu : MonoBehaviour
 
         }
     }
+   
+
+
+
 
     public void masquerMenuPause()
     {
